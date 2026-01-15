@@ -46,3 +46,35 @@ p {
 .photo-grid img:hover {
   transform: translateY(-6px) scale(1.03);
   box-shadow: 0 18
+
+  .photo-grid img {
+  animation: fadeUp 0.8s ease forwards;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.next-button {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.next-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+}
