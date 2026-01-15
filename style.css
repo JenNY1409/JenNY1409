@@ -109,3 +109,81 @@ body {
 .hub-card p {
   color: #555;
 }
+
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #f2f2f2;
+  margin: 0;
+}
+
+.container {
+  background: white;
+  margin: 40px auto;
+  padding: 40px;
+  max-width: 1000px;
+  text-align: center;
+  position: relative;
+}
+
+/* PHOTO GRID */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  margin: 50px 0;
+}
+
+.photo-grid img {
+  width: 100%;
+  border-radius: 15px;
+  transform: translateY(30px);
+  opacity: 0;
+  animation: slideIn 0.8s forwards;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+}
+
+/* stagger animation */
+.photo-grid img:nth-child(1){animation-delay:.1s}
+.photo-grid img:nth-child(2){animation-delay:.2s}
+.photo-grid img:nth-child(3){animation-delay:.3s}
+.photo-grid img:nth-child(4){animation-delay:.4s}
+.photo-grid img:nth-child(5){animation-delay:.5s}
+.photo-grid img:nth-child(6){animation-delay:.6s}
+.photo-grid img:nth-child(7){animation-delay:.7s}
+
+.photo-grid img:hover {
+  transform: scale(1.08) rotate(-1deg);
+}
+
+/* LINKS */
+.links {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.links a {
+  text-decoration: none;
+  padding: 15px 25px;
+  background: black;
+  color: white;
+  border-radius: 30px;
+  font-weight: bold;
+}
+
+.links a:hover {
+  background: #444;
+}
+
+@keyframes slideIn {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
