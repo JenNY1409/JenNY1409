@@ -6,67 +6,69 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  color: #222;
 }
 
 .container {
   background: white;
   padding: 40px;
-  border-radius: 12px;
+  border-radius: 18px;
   width: 90%;
-  max-width: 600px;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  max-width: 800px;
+  box-shadow: 0 20px 45px rgba(0,0,0,0.25);
   text-align: center;
 }
 
-h1 {
-  margin-top: 0;
-  font-size: 36px;
-  color: #222;
-}
-
-p {
-  font-size: 18px;
-  color: #555;
-}
+/* ===== PHOTO GRID ===== */
 
 .photo-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 26px;
+  gap: 28px;
   margin-top: 35px;
-
-  /* makes images spill outside the white card */
-  margin-left: -60px;
-  margin-right: -60px;
+  margin-left: -80px;
+  margin-right: -80px;
+  overflow: visible;
 }
 
 .photo-grid img {
   width: 100%;
-  border-radius: 20px;
-  box-shadow: 0 20px 45px rgba(0,0,0,0.3);
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  border-radius: 18px;
+  box-shadow: 0 18px 45px rgba(0,0,0,0.3);
+  opacity: 0;
+  transform: translateY(40px);
+  animation: slideIn 0.9s ease forwards;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  position: relative;
+  z-index: 1;
 }
+
+/* stagger + rotation */
+.photo-grid img:nth-child(1) { animation-delay: 0.1s; transform: rotate(-6deg) translateY(40px); }
+.photo-grid img:nth-child(2) { animation-delay: 0.25s; transform: rotate(4deg) translateY(40px); }
+.photo-grid img:nth-child(3) { animation-delay: 0.4s; transform: rotate(-3deg) translateY(40px); }
+.photo-grid img:nth-child(4) { animation-delay: 0.55s; transform: rotate(6deg) translateY(40px); }
+.photo-grid img:nth-child(5) { animation-delay: 0.7s; transform: rotate(-5deg) translateY(40px); }
 
 .photo-grid img:hover {
-  transform: translateY(-12px) scale(1.08);
+  transform: scale(1.15) rotate(0deg) translateY(-12px);
   box-shadow: 0 30px 70px rgba(0,0,0,0.4);
+  z-index: 10;
 }
 
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
+@keyframes slideIn {
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
+/* ===== BUTTON ===== */
+
 .next-button {
   display: inline-block;
-  margin-top: 30px;
-  padding: 12px 24px;
+  margin-top: 35px;
+  padding: 14px 28px;
   background: linear-gradient(135deg, #6a11cb, #2575fc);
   color: white;
   text-decoration: none;
@@ -76,6 +78,34 @@ p {
 }
 
 .next-button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.35);
+}
+
+/* ===== PROJECTS HUB ===== */
+
+.hub {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  margin: 35px 0;
+}
+
+.hub-card {
+  background: white;
+  padding: 28px;
+  border-radius: 18px;
+  text-decoration: none;
+  color: #222;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hub-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 22px 50px rgba(0,0,0,0.28);
+}
+
+.hub-card p {
+  color: #555;
 }
